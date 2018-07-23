@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Transloc Client</string>
+    <string name="bottom_sheet_behavior">android.support.design.widget.BottomSheetBehavior</string>
+</resources>

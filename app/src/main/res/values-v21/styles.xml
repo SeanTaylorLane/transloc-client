@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.ActionBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:elevation">4dp</item>
+    </style>
+    <style name="AppTheme.BottomSheetOverlay">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:elevation">8dp</item>
+    </style>
+
+</resources>
