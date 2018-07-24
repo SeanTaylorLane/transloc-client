@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.seantaylorlane.translocclient.utils.RecyclerViewDecorators
 import kotlinx.android.synthetic.main.fragment_routes.*
 
 class RoutesFragment : Fragment() {
@@ -23,7 +24,7 @@ class RoutesFragment : Fragment() {
             adapter = RoutesAdapter(items)
             layoutManager = LinearLayoutManager(context)
             val divider = ResourcesCompat.getDrawable(resources, R.drawable.list_divider_grey, null)
-            addItemDecoration(LinearVerticalDivider(divider))
+            addItemDecoration(RecyclerViewDecorators.VerticalDivider(divider))
         }
     }
 }
