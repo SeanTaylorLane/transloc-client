@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import kotlinx.android.synthetic.main.rv_item_route.view.*
 
-class RoutesAdapter(val items: List<Int>) : RecyclerView.Adapter<RoutesAdapter.ViewHolder>() {
+class RoutesAdapter(val items: List<Int>, val routeClickListener: OnRouteClickListener) : RecyclerView.Adapter<RoutesAdapter.ViewHolder>() {
     val TAG = "RoutesAdapter"
 
     override fun getItemCount() = items.size
@@ -19,13 +19,14 @@ class RoutesAdapter(val items: List<Int>) : RecyclerView.Adapter<RoutesAdapter.V
 
     override fun onBindViewHolder(holder: RoutesAdapter.ViewHolder, position: Int) {
         holder.route_name.text = items[position].toString()
+        holder.itemView.setOnClickListener { routeClickListener.onRouteClick() }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val route_name: TextView = itemView.route_name
     }
 
-    interface OnRouteClickedListener {
+    interface OnRouteClickListener {
         fun onRouteClick()
     }
 }

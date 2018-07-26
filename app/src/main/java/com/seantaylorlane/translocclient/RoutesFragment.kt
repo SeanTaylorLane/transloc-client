@@ -21,7 +21,7 @@ class RoutesFragment : Fragment() {
 
         val items = (1..10).toList()
         rv_routes.apply {
-            adapter = RoutesAdapter(items)
+            adapter = RoutesAdapter(items, (activity as MainActivity))
             layoutManager = LinearLayoutManager(context)
             val divider = ResourcesCompat.getDrawable(resources, R.drawable.list_divider_grey, null)
             addItemDecoration(RecyclerViewDecorators.VerticalDivider(divider))

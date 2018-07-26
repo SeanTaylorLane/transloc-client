@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.rv_item_stop.view.*
 
-class StopsAdapter(val items: List<Int>) : RecyclerView.Adapter<StopsAdapter.ViewHolder>() {
+class StopsAdapter(val items: List<Char>) : RecyclerView.Adapter<StopsAdapter.ViewHolder>() {
     val TAG = "StopsAdapter"
 
     override fun getItemCount() = items.size

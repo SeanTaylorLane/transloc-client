@@ -18,7 +18,7 @@ class StopsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val items = (1..10).toList()
+        val items = ('a'..'d').toList()
         rv_stops.apply {
             adapter = StopsAdapter(items)
             layoutManager = LinearLayoutManager(context)
