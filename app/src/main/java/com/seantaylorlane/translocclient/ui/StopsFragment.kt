@@ -1,4 +1,4 @@
-package com.seantaylorlane.translocclient
+package com.seantaylorlane.translocclient.ui
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,7 +7,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.seantaylorlane.translocclient.utils.RecyclerViewDecorators
+import com.seantaylorlane.translocclient.R
+import com.seantaylorlane.translocclient.ui.widgets.recyclerview.RecyclerViewDecorators
+import com.seantaylorlane.translocclient.ui.widgets.recyclerview.StopsAdapter
 import kotlinx.android.synthetic.main.fragment_stops.*
 
 class StopsFragment : Fragment() {

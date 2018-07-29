@@ -1,4 +1,4 @@
-package com.seantaylorlane.translocclient.utils
+package com.seantaylorlane.translocclient.ui.widgets.recyclerview
 
 import android.graphics.Canvas
 import android.graphics.Rect

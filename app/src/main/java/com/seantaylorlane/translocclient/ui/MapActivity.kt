@@ -1,18 +1,21 @@
-package com.seantaylorlane.translocclient
+package com.seantaylorlane.translocclient.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomSheetBehavior
 import android.support.v4.app.FragmentManager
 import android.widget.FrameLayout
+import com.seantaylorlane.translocclient.R
+import com.seantaylorlane.translocclient.ui.widgets.recyclerview.RoutesAdapter
+import kotlinx.android.synthetic.main.activity_map.*
 
-class MainActivity : AppCompatActivity(), RoutesAdapter.OnRouteClickListener, FragmentManager.OnBackStackChangedListener {
+class MapActivity : AppCompatActivity(), RoutesAdapter.OnRouteClickListener, FragmentManager.OnBackStackChangedListener {
     lateinit var bottomSheetBehavior: BottomSheetBehavior<FrameLayout>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        setContentView(R.layout.activity_map)
+        setSupportActionBar(actionbar_map)
         bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.bottom_sheet))
 //        supportFragmentManager.addOnBackStackChangedListener(this)
         supportFragmentManager.beginTransaction()
