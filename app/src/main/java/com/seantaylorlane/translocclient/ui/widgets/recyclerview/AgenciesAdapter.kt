@@ -10,8 +10,14 @@ import com.seantaylorlane.translocclient.api.TranslocModels
 import kotlinx.android.synthetic.main.rv_item_agency.view.*
 import kotlinx.android.synthetic.main.rv_item_route.view.*
 
-class AgenciesAdapter(val items: List<TranslocModels.AgenciesResponse.Agency>) : RecyclerView.Adapter<AgenciesAdapter.ViewHolder>() {
+class AgenciesAdapter : RecyclerView.Adapter<AgenciesAdapter.ViewHolder>() {
     val TAG = "RoutesAdapter"
+
+    var items: List<TranslocModels.AgenciesResponse.Agency> = emptyList()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun getItemCount() = items.size
 

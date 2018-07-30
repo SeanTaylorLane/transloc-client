@@ -20,15 +20,17 @@ class AgenciesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(actionbar_main)
 
+        val agenciesAdapter = AgenciesAdapter()
         rv_agencies.apply {
             layoutManager = LinearLayoutManager(context)
             val divider = ResourcesCompat.getDrawable(resources, R.drawable.list_divider_grey, null)
             addItemDecoration(RecyclerViewDecorators.VerticalDivider(divider))
+            adapter = agenciesAdapter
         }
 
         viewModel = ViewModelProviders.of(this).get(AgenciesViewModel::class.java)
         viewModel.agencies.observe(this, Observer {
-            rv_agencies.adapter = AgenciesAdapter(it ?: emptyList())
+            agenciesAdapter.items = it ?: emptyList()
         })
     }
 
