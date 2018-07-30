@@ -2,6 +2,7 @@ package com.seantaylorlane.translocclient
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
+import android.arch.persistence.room.Room
 import com.seantaylorlane.translocclient.api.TranslocModels
 import com.seantaylorlane.translocclient.api.TranslocService
 import okhttp3.OkHttpClient
@@ -31,6 +32,7 @@ class AgenciesRepository {
                 .build()
                 .create(TranslocService::class.java)
     }
+
     fun getAgencies(): LiveData<List<TranslocModels.AgenciesResponse.Agency>> {
         val data = MutableLiveData<List<TranslocModels.AgenciesResponse.Agency>>()
         val callback = object : Callback<TranslocModels.AgenciesResponse> {

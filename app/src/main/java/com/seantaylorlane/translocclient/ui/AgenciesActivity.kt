@@ -12,7 +12,7 @@ import com.seantaylorlane.translocclient.ui.widgets.recyclerview.AgenciesAdapter
 import com.seantaylorlane.translocclient.ui.widgets.recyclerview.RecyclerViewDecorators
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class AgenciesActivity : AppCompatActivity() {
     lateinit var viewModel: AgenciesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,14 +20,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(actionbar_main)
 
-        viewModel = ViewModelProviders.of(this).get(AgenciesViewModel::class.java)
         rv_agencies.apply {
             layoutManager = LinearLayoutManager(context)
             val divider = ResourcesCompat.getDrawable(resources, R.drawable.list_divider_grey, null)
             addItemDecoration(RecyclerViewDecorators.VerticalDivider(divider))
         }
+
+        viewModel = ViewModelProviders.of(this).get(AgenciesViewModel::class.java)
         viewModel.agencies.observe(this, Observer {
             rv_agencies.adapter = AgenciesAdapter(it ?: emptyList())
         })
+    }
+
+    private fun onError(message: String) {
+
     }
 }
