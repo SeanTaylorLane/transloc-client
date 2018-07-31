@@ -48,12 +48,13 @@ class AgenciesRepository(val application: Application) {
     }
 
     fun refreshAgencies() {
-        val data = MutableLiveData<List<TranslocModels.AgenciesResponse.Agency>>()
         val callback = object : Callback<TranslocModels.AgenciesResponse> {
             override fun onResponse(call: Call<TranslocModels.AgenciesResponse>?, response: Response<TranslocModels.AgenciesResponse>?) {
                 // TODO: Handle error cases
                 val data = response?.body()?.data
-                SaveToDatabaseAsyncTask(agenciesDao).execute(data)
+                if(data != null) {
+                    SaveToDatabaseAsyncTask(agenciesDao).execute(data.sortedBy { it.name })
+                }
             }
 
             override fun onFailure(call: Call<TranslocModels.AgenciesResponse>?, t: Throwable?) {
@@ -65,11 +66,8 @@ class AgenciesRepository(val application: Application) {
     }
 
     private class SaveToDatabaseAsyncTask(val agenciesDao: AgenciesDao) : AsyncTask<List<TranslocModels.AgenciesResponse.Agency>, Unit, Unit>() {
-        override fun doInBackground(vararg params: List<TranslocModels.AgenciesResponse.Agency>?) {
-            val data = params[0]
-            if(data != null) {
-                agenciesDao.save(data)
-            }
+        override fun doInBackground(vararg params: List<TranslocModels.AgenciesResponse.Agency>) {
+            agenciesDao.save(params[0])
         }
     }
 }
