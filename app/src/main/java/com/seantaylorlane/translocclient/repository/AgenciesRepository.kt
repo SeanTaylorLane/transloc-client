@@ -1,13 +1,15 @@
-package com.seantaylorlane.translocclient
+package com.seantaylorlane.translocclient.repository
 
 import android.app.Application
 import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
 import android.arch.persistence.room.Room
 import android.os.AsyncTask
 import android.widget.Toast
+import com.seantaylorlane.translocclient.BuildConfig
 import com.seantaylorlane.translocclient.api.TranslocModels
 import com.seantaylorlane.translocclient.api.TranslocService
+import com.seantaylorlane.translocclient.db.AgenciesDao
+import com.seantaylorlane.translocclient.db.Database
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call

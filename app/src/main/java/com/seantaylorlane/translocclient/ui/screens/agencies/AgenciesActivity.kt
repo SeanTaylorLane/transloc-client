@@ -1,4 +1,4 @@
-package com.seantaylorlane.translocclient.ui
+package com.seantaylorlane.translocclient.ui.screens.agencies
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -6,11 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
-import com.seantaylorlane.translocclient.AgenciesViewModel
 import com.seantaylorlane.translocclient.R
-import com.seantaylorlane.translocclient.ui.widgets.recyclerview.AgenciesAdapter
-import com.seantaylorlane.translocclient.ui.widgets.recyclerview.RecyclerViewDecorators
+import com.seantaylorlane.translocclient.ui.common.RecyclerViewDecorators
 import kotlinx.android.synthetic.main.activity_main.*
 
 class AgenciesActivity : AppCompatActivity() {

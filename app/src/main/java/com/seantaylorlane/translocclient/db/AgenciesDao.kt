@@ -1,4 +1,4 @@
-package com.seantaylorlane.translocclient
+package com.seantaylorlane.translocclient.db
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*

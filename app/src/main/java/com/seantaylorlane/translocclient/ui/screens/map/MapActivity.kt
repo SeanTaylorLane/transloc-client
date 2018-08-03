@@ -1,4 +1,4 @@
-package com.seantaylorlane.translocclient.ui
+package com.seantaylorlane.translocclient.ui.screens.map
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,6 @@ import android.support.design.widget.BottomSheetBehavior
 import android.support.v4.app.FragmentManager
 import android.widget.FrameLayout
 import com.seantaylorlane.translocclient.R
-import com.seantaylorlane.translocclient.ui.widgets.recyclerview.RoutesAdapter
 import kotlinx.android.synthetic.main.activity_map.*
 
 class MapActivity : AppCompatActivity(), RoutesAdapter.OnRouteClickListener, FragmentManager.OnBackStackChangedListener {

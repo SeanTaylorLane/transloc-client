@@ -1,9 +1,9 @@
-package com.seantaylorlane.translocclient
+package com.seantaylorlane.translocclient.ui.screens.agencies
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.ViewModel
+import com.seantaylorlane.translocclient.repository.AgenciesRepository
 import com.seantaylorlane.translocclient.api.TranslocModels
 
 class AgenciesViewModel(app: Application) : AndroidViewModel(app) {

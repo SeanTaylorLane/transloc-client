@@ -1,4 +1,4 @@
-package com.seantaylorlane.translocclient.ui.widgets.recyclerview
+package com.seantaylorlane.translocclient.ui.screens.agencies
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import android.widget.TextView
 import com.seantaylorlane.translocclient.R
 import com.seantaylorlane.translocclient.api.TranslocModels
 import kotlinx.android.synthetic.main.rv_item_agency.view.*
-import kotlinx.android.synthetic.main.rv_item_route.view.*
 
 class AgenciesAdapter : RecyclerView.Adapter<AgenciesAdapter.ViewHolder>() {
     val TAG = "RoutesAdapter"

@@ -1,4 +1,4 @@
-package com.seantaylorlane.translocclient.ui.widgets.recyclerview
+package com.seantaylorlane.translocclient.ui.screens.map
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
