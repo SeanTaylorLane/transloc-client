@@ -3,6 +3,7 @@ package com.seantaylorlane.translocclient.repository
 import android.app.Application
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Room
+import android.content.Context
 import android.os.AsyncTask
 import android.widget.Toast
 import com.seantaylorlane.translocclient.BuildConfig
@@ -17,10 +18,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
-class AgenciesRepository(val application: Application) {
+class AgenciesRepository @Inject constructor(val applicationContext: Context) {
     val agenciesDao: AgenciesDao by lazy {
-        Room.databaseBuilder(application.applicationContext, Database::class.java, "database")
+        Room.databaseBuilder(applicationContext, Database::class.java, "database")
                 .build()
                 .agenciesDao()
     }
@@ -61,7 +63,6 @@ class AgenciesRepository(val application: Application) {
 
             override fun onFailure(call: Call<TranslocModels.AgenciesResponse>?, t: Throwable?) {
                 // TODO: Handle error cases
-                Toast.makeText(application.applicationContext, "Network error", Toast.LENGTH_SHORT)
             }
         }
         translocService.getAgencies().enqueue(callback)

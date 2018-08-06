@@ -7,17 +7,22 @@ import android.os.Bundle
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.widget.LinearLayoutManager
 import com.seantaylorlane.translocclient.R
+import com.seantaylorlane.translocclient.TranslocApp
 import com.seantaylorlane.translocclient.ui.common.RecyclerViewDecorators
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class AgenciesActivity : AppCompatActivity() {
     val TAG = "AgenciesActivity"
     lateinit var viewModel: AgenciesViewModel
+    @Inject
+    lateinit var viewModelFactory: AgenciesViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(actionbar_main)
+        (application as TranslocApp).appComponent.inject(this)
 
         val agenciesAdapter = AgenciesAdapter()
         rv_agencies.apply {
@@ -27,7 +32,7 @@ class AgenciesActivity : AppCompatActivity() {
             adapter = agenciesAdapter
         }
 
-        viewModel = ViewModelProviders.of(this).get(AgenciesViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(AgenciesViewModel::class.java)
         viewModel.agencies.observe(this, Observer {
             agenciesAdapter.items = it ?: emptyList()
         })
