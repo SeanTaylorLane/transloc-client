@@ -1,50 +1,16 @@
 package com.seantaylorlane.translocclient.repository
 
-import android.app.Application
 import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.Room
-import android.content.Context
 import android.os.AsyncTask
-import android.widget.Toast
-import com.seantaylorlane.translocclient.BuildConfig
 import com.seantaylorlane.translocclient.api.TranslocModels
 import com.seantaylorlane.translocclient.api.TranslocService
 import com.seantaylorlane.translocclient.db.AgenciesDao
-import com.seantaylorlane.translocclient.db.Database
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
-class AgenciesRepository @Inject constructor(val applicationContext: Context) {
-    val agenciesDao: AgenciesDao by lazy {
-        Room.databaseBuilder(applicationContext, Database::class.java, "database")
-                .build()
-                .agenciesDao()
-    }
-
-    val translocService: TranslocService by lazy {
-        val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-        val client = OkHttpClient.Builder()
-                .addInterceptor(loggingInterceptor)
-                .addInterceptor {
-                    val request = it.request().newBuilder()
-                            .header("X-Mashape-Key", BuildConfig.TranslocAPIKey)
-                            .header("X-Mashape-Host", "transloc-api-1-2.p.mashape.com")
-                            .build()
-                    it.proceed(request)
-                }.build()
-        Retrofit.Builder()
-                .baseUrl("https://transloc-api-1-2.p.mashape.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
-                .build()
-                .create(TranslocService::class.java)
-    }
+class AgenciesRepository @Inject constructor(val agenciesDao: AgenciesDao, val translocService: TranslocService) {
 
     fun getAgencies(): LiveData<List<TranslocModels.AgenciesResponse.Agency>> {
         refreshAgencies()
