@@ -7,7 +7,7 @@ import com.seantaylorlane.translocclient.BuildConfig
 import com.seantaylorlane.translocclient.api.TranslocService
 import com.seantaylorlane.translocclient.db.AgenciesDao
 import com.seantaylorlane.translocclient.db.Database
-import com.seantaylorlane.translocclient.repository.AgenciesRepository
+import com.seantaylorlane.translocclient.repositories.AgenciesRepository
 import com.seantaylorlane.translocclient.ui.screens.agencies.AgenciesViewModelFactory
 import dagger.Module
 import dagger.Provides

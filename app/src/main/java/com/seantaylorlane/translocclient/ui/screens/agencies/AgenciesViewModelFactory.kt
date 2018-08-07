@@ -2,7 +2,7 @@ package com.seantaylorlane.translocclient.ui.screens.agencies
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.seantaylorlane.translocclient.repository.AgenciesRepository
+import com.seantaylorlane.translocclient.repositories.AgenciesRepository
 import javax.inject.Inject
 
 class AgenciesViewModelFactory @Inject constructor(val agenciesRepository: AgenciesRepository) : ViewModelProvider.Factory {

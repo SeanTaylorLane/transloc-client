@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 
 object TranslocModels {
 
-    data class AgenciesResponse(val data: List<Agency>) {
+    data class AgenciesResponse(val data: List<Agency>?, val message: String?) {
         @Entity
         data class Agency(@SerializedName("agency_id") @PrimaryKey val id: String,
                           @SerializedName("long_name") val name: String)
