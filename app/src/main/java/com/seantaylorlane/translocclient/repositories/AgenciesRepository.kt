@@ -20,7 +20,7 @@ class AgenciesRepository @Inject constructor(val agenciesDao: AgenciesDao, val t
         result.value = Resource.loading()
         val dbSource = agenciesDao.loadAll()
         result.addSource(dbSource) { data ->
-            if(data != null && !data.isEmpty()) {
+            if(data?.isEmpty() == false) {
                 result.value = Resource.success(data)
             }
             result.removeSource(dbSource)
