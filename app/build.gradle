@@ -6,6 +6,11 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+// For importing variables from the local.properties file
+def localPropertiesFile = rootProject.file("local.properties")
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(localPropertiesFile))
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -18,7 +23,8 @@ android {
     }
     buildTypes {
         buildTypes.each {
-            it.buildConfigField 'String', 'TranslocAPIKey', TranslocAPIKey
+            // Gives all build types access to the TranslocAPIKey in Java/Kotlin from the local.properties file
+            it.buildConfigField "String", "TranslocAPIKey", localProperties['TranslocAPIKey']
         }
         release {
             minifyEnabled false
